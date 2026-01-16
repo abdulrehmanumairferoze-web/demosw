@@ -13,7 +13,7 @@ export const summarizeOperations = async (
   previousSummary?: string
 ): Promise<SummaryResult> => {
   // Always create a new instance right before the call to ensure the latest API key/context is used
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || 'FAKE_API_KEY_FOR_DEVELOPMENT' });
   const model = 'gemini-3-flash-preview';
   
   const prompt = `
